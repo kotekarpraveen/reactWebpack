@@ -1,24 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import {store} from './redux/store/store'
+import { Provider } from "react-redux";
+
+
+//CSS
+import "./App.css";
 
 const App=()=>{
 
-    const [data, setData] = useState([]);
+   return (
 
-    useEffect(() => {
-        axios.get(`https://jsonplaceholder.typicode.com/users`)
-        .then(res => {
-          const persons = res.data;
-          setData(persons );
-        })
-    
-      
-    },[])
-
-    console.log(data);
-    
-  return (
-    <div>App</div>
+    <Provider store={store}>
+        <div>App</div>
+    </Provider>
   )
 }
 
